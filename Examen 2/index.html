@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title> Tu Signo Zodiacal</title>
+    <style>
+        input[type="range"] {
+            width: 300px;
+        }
+    </style>
+    <script>
+        function obtenerSigno() {
+            var dia = parseInt(document.getElementById("dia").value);
+            var mes = parseInt(document.getElementById("mes").value);
+
+            var signo = "";
+
+            if ((mes == 1 && dia >= 20) || (mes == 2 && dia <= 18)) {
+                signo = "Acuario";
+            } else if ((mes == 2 && dia >= 19) || (mes == 3 && dia <= 20)) {
+                signo = "Piscis";
+            } else if ((mes == 3 && dia >= 21) || (mes == 4 && dia <= 19)) {
+                signo = "Aries";
+            } else if ((mes == 4 && dia >= 20) || (mes == 5 && dia <= 20)) {
+                signo = "Tauro";
+            } else if ((mes == 5 && dia >= 21) || (mes == 6 && dia <= 20)) {
+                signo = "Géminis";
+            } else if ((mes == 6 && dia >= 21) || (mes == 7 && dia <= 22)) {
+                signo = "Cáncer";
+            } else if ((mes == 7 && dia >= 23) || (mes == 8 && dia <= 22)) {
+                signo = "Leo";
+            } else if ((mes == 8 && dia >= 23) || (mes == 9 && dia <= 22)) {
+                signo = "Virgo";
+            } else if ((mes == 9 && dia >= 23) || (mes == 10 && dia <= 22)) {
+                signo = "Libra";
+            } else if ((mes == 10 && dia >= 23) || (mes == 11 && dia <= 21)) {
+                signo = "Escorpio";
+            } else if ((mes == 11 && dia >= 22) || (mes == 12 && dia <= 21)) {
+                signo = "Sagitario";
+            } else if ((mes == 12 && dia >= 22) || (mes == 1 && dia <= 19)) {
+                signo = "Capricornio";
+            }
+
+            document.getElementById("valorDia").innerHTML = dia;
+            document.getElementById("valorMes").innerHTML = mes;
+            document.getElementById("resultado").innerHTML = "Tu signo zodiacal es: " + signo;
+        }
+    </script>
+</head>
+<body>
+    <h1>Signo Zodiacal</h1>
+    <p>Ingresa tu fecha de nacimiento:</p>
+    <input type="range" id="dia" min="1" max="31" value="1" onchange="obtenerSigno()">
+    <br>
+    <label for="valorDia">Día seleccionado: <span id="valorDia">1</span></label>
+    <br>
+    <select id="mes" onchange="obtenerSigno()">
+        <option value="1">Enero</option>
+        <option value="2">Febrero</option>
+        <option value="3">Marzo</option>
+        <option value="4">Abril</option>
+        <option value="5">Mayo</option>
+        <option value="6">Junio</option>
+        <option value="7">Julio</option>
+        <option value="8">Agosto</option>
+        <option value="9">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Noviembre</option>
+        <option value="12">Diciembre</option>
+    </select>
+    <br>
+    <label for="valorMes">Mes seleccionado: <span id="valorMes">1</span></label>
+    <br>
+    <p id="resultado"></p>
+</body>
+</html>

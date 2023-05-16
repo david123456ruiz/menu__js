@@ -1,0 +1,14 @@
+*{
+ 
+background: red;
+}
+div{
+text-align: center;
+}
+div#spinner{
+text-align: center;
+    
+    height: 2px;
+    width: 2px;
+}
+
