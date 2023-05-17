@@ -3,15 +3,12 @@
       var base = parseFloat(document.getElementById("base").value);
       var altura = parseFloat(document.getElementById("altura").value);
 
-      var spinner = document.getElementById("spinner");
-      spinner.style.display = "block";
+      const spinner = document.querySelector("#spinner");
+    spinner.innerHTML = `<img src="spimner.gif">`;
+    spinner.style.display = "block";
 
-      setTimeout(function() {
-        var area = (base * altura) / 2;
-        var areaRedondeada = area.toFixed(2);
-
-        document.getElementById("resultado").innerHTML = "El área del triángulo es: " + areaRedondeada;
-
+    setTimeout(() => {
+        document.querySelector("#resultado").textContent = `El área del triángulo es: ${area}`;
         spinner.style.display = "none";
-      }, 2000);
+    }, 1000);
     }

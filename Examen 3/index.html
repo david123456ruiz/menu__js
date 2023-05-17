@@ -1,9 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
   <title>Calculadora de Área de Triángulo</title>
- 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      width: 300px;
+      margin: 0 auto;
+    }
+    
+    h2 {
+      text-align: center;
+    }
+    
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    
+    input[type="number"] {
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .spinner {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    .spinner .dot1,
+    .spinner .dot2 {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: #333;
+      border-radius: 50%;
+      animation: bounce 0.7s infinite alternate;
+    }
+    
+    .spinner .dot2 {
+      animation-delay: 0.3s;
+    }
+    
+    @keyframes bounce {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -20,6 +81,23 @@
     <p id="resultado"></p>
   </div>
 
-  <script src="apps.js"></script>
+  <script>
+    function calcularArea() {
+      var base = parseFloat(document.getElementById("base").value);
+      var altura = parseFloat(document.getElementById("altura").value);
+
+      var spinner = document.getElementById("spinner");
+      spinner.style.display = "block";
+
+      setTimeout(function() {
+        var area = (base * altura) / 2;
+        var areaRedondeada = area.toFixed(2);
+
+        document.getElementById("resultado").innerHTML = "El área del triángulo es: " + areaRedondeada;
+
+        spinner.style.display = "none";
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
